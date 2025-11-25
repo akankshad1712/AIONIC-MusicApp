@@ -1,0 +1,145 @@
+{% extends 'baseloggedin.html' %}
+{% load static %}
+{% block title %}Profile - AIONIC{% endblock %}
+{% block content %}
+
+<div style="max-width:650px; margin:auto; padding:30px;">
+
+  <!-- Profile Glass Card -->
+  <div class="glass" style="padding:40px; text-align:center; backdrop-filter:blur(12px);">
+    <h1 style="font-size:28px; color:#4f7cff; margin-bottom:10px;">👤 My Profile</h1>
+    <p style="margin-bottom:20px; color:#555;">Manage your account and personalize your profile</p>
+
+    <!-- Profile Picture -->
+    <div style="margin:20px 0;">
+      {% if request.user.profile.image %}
+      <img src="{{ request.user.profile.image.url }}" alt="Profile Picture"
+        style="width:120px; height:120px; border-radius:50%; border:4px solid #4f7cff; object-fit:cover; transition:0.3s;">
+      {% else %}
+      <img src="{% static 'images/profile.png}
+      " Profile Logo"
+        style="width:120px; height:120px; border-radius:50%; border:4px solid #4f7cff; object-fit:cover; transition:0.3s;">
+      {% endif %}
+    </div>
+
+    <!-- Profile Form -->
+    <form method="POST" enctype="multipart/form-data" style="margin-top:25px;">
+      {% csrf_token %}
+
+      <label for="full_name" style="font-weight:600;">Full Name:</label>
+      <input type="text" id="full_name" name="full_name" value="{{ request.user.get_full_name }}"
+        placeholder="Enter full name">
+
+      <label for="email" style="font-weight:600;">Email:</label>
+      <input type="text" id="email" name="email" value="{{ request.user.email }}" placeholder="Enter email">
+
+      <label for="image" style="font-weight:600;">Profile Image:</label>
+      <input type="file" id="image" name="image">
+
+      <button type="submit" class="btn">Update Profile</button>
+    </form>
+
+    <!-- Account Info -->
+    <div style="margin-top:30px; text-align:left; color:#333;">
+      <h3 style="font-size:18px; margin-bottom:10px;">Account Details</h3>
+      <p><strong>Username:</strong> {{ request.user.username }}</p>
+      <p><strong>Date Joined:</strong> {{ request.user.date_joined|date:"M d, Y" }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Background Particles -->
+<canvas id="profile-particles" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2;"></canvas>
+
+<style>
+  /* Glass-morphic card */
+  .glass {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .glass:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(79, 124, 255, 0.25);
+  }
+
+  /* Input fields modern style */
+  input[type="text"],
+  input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #cdd4f1;
+    margin-bottom: 15px;
+    font-size: 15px;
+    background: #f7f8ff;
+    color: #333;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #4f7cff;
+    box-shadow: 0 0 12px rgba(79, 124, 255, 0.3);
+  }
+
+  /* Button style */
+  .btn {
+    padding: 12px 18px;
+    background: #4f7cff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(79, 124, 255, 0.5);
+  }
+</style>
+
+<script>
+  const canvas = document.getElementById('profile-particles');
+  const ctx = canvas.getContext('2d');
+  let w = canvas.width = window.innerWidth;
+  let h = canvas.height = window.innerHeight;
+
+  // Floating particles
+  const particles = [];
+  for (let i = 0; i < 100; i++) {
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.5,
+      dy: (Math.random() - 0.5) * 0.5
+    });
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(79,124,255,0.3)";
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0 || p.x > w) p.dx *= -1;
+      if (p.y < 0 || p.y > h) p.dy *= -1;
+    });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+
+  window.addEventListener('resize', () => {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  });
+</script>
+
+{% endblock %}
