@@ -10,12 +10,8 @@ The platform features a **modern admin-style dashboard**, user authentication, h
 ## 📌 Table of Contents
 - [Overview](#-overview)
 - [Key Features](#-key-features)
-- [Screenshots](#-screenshots)
 - [Tech Stack](#-tech-stack)
-- [Project Architecture](#-project-architecture)
-- [Installation & Setup](#️-installation--setup)
 - [Application Routes](#-application-routes)
-- [Admin Dashboard Overview](#-admin-dashboard-overview)
 - [Future Enhancements](#-future-enhancements)
 - [License](#-license)
 - [Author](#-author)
@@ -145,5 +141,8 @@ It combines **AI analysis, analytics dashboards, and modern UI design** to deliv
 
 - User social sharing features
 
+## 👩‍💻 Author
+### Akanksha Deshmukh
+   # Software Engineer 
 
 
