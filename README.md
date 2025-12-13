@@ -67,6 +67,5 @@ AIONIC is a full-stack web application that uses **Artificial Intelligence** to 
 ---
 
 
-
-## 📂 Project Structure
-
+/profile/       → User Profile
+/logout/        → Logout
