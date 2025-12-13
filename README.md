@@ -13,7 +13,6 @@ The platform features a **modern admin-style dashboard**, user authentication, h
 - [Tech Stack](#-tech-stack)
 - [Application Routes](#-application-routes)
 - [Future Enhancements](#-future-enhancements)
-- [License](#-license)
 - [Author](#-author)
 
 ---
@@ -144,6 +143,7 @@ It combines **AI analysis, analytics dashboards, and modern UI design** to deliv
 ## 👩‍💻 Author
 ### Akanksha Deshmukh
  Software Engineer 
+
 
 
 
