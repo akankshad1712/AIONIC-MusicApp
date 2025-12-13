@@ -76,38 +76,38 @@ It combines **AI analysis, analytics dashboards, and modern UI design** to deliv
 
 ### Frontend
 
-  HTML5
+  - HTML5
   
-  CSS3 (Glassmorphism UI)
+  - CSS3 (Glassmorphism UI)
   
-  JavaScript
+  - JavaScript
   
- Bootstrap Icons
+ - Bootstrap Icons
  
 ### Backend
 
-   Django (Python)
+   - Django (Python)
    
-   Django Authentication System
+   - Django Authentication System
    
-   Django Templates
+  - Django Templates
    
 
 ### AI & Logic
 
-  Mood Detection (Rule-based / AI-ready)
+  - Mood Detection (Rule-based / AI-ready)
   
-  Sentiment Analysis
+  - Sentiment Analysis
   
-  Extensible music generation logic
+  - Extensible music generation logic
   
  
 ### Assets & UI
 
-  Custom Logo: ![aionic_logo](https://github.com/user-attachments/assets/039ad356-aa20-4490-8dff-d5b4c1930e7e)
+  - Custom Logo: ![aionic_logo](https://github.com/user-attachments/assets/039ad356-aa20-4490-8dff-d5b4c1930e7e)
 
   
-  Responsive Design (Desktop & Laptop)
+  - Responsive Design (Desktop & Laptop)
   
 
 
@@ -135,13 +135,14 @@ It combines **AI analysis, analytics dashboards, and modern UI design** to deliv
 
 ## 🔮 Future Enhancements
 
-Real AI music generation models
+- Real AI music generation models
 
-Spotify API authentication integration
+- Spotify API authentication integration
 
-Admin analytics with Chart.js
+- Admin analytics with Chart.js
 
-Mobile responsive version
+- Mobile responsive version
 
-User social sharing features
+- User social sharing features
+
 
