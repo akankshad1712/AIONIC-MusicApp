@@ -72,10 +72,6 @@ It combines **AI analysis, analytics dashboards, and modern UI design** to deliv
 
 ## 📸 Screenshots
 
-> *(Add screenshots inside a `/screenshots` folder)*
-
-
-screenshots/
 │── splash.png
 <img width="1920" height="1080" alt="Screenshot (811)" src="https://github.com/user-attachments/assets/fb9fbeaf-7e14-4968-b705-706b1f837a46" />
 
@@ -108,3 +104,75 @@ screenshots/
 │── profile.png
 <img width="1920" height="1080" alt="Screenshot (822)" src="https://github.com/user-attachments/assets/b1b43234-a2fa-4821-9293-66e5270bf454" />
 
+
+## 🛠️ Tech Stack
+
+### Frontend
+  HTML5
+  CSS3 (Glassmorphism UI)
+  JavaScript
+ Bootstrap Icons
+### Backend
+   Django (Python)
+   Django Authentication System
+   Django Templates
+
+### AI & Logic
+  Mood Detection (Rule-based / AI-ready)
+  Sentiment Analysis
+  Extensible music generation logic
+ 
+### Assets & UI
+  Custom Logo: aionic_logo.png
+   Responsive Design (Desktop & Laptop)
+
+## 📂 Project Architecture
+
+musicgenn/
+│
+├── core/
+│   ├── templates/
+│   │   ├── splash.html
+│   │   ├── login.html
+│   │   ├── register.html
+│   │   ├── home.html
+│   │   ├── admin_dashboard.html
+│   │   ├── history.html
+│   │   ├── spotify.html
+│   │   └── profile.html
+│   │
+│   ├── static/
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── images/
+│   │       └── aionic_logo.png
+│   │
+│   ├── views.py
+│   ├── urls.py
+│   └── models.py
+│
+├── manage.py
+└── README.md
+
+## 🔗 Application Routes
+/               → Splash Page
+/login/         → Login Page
+/register/      → Register Page
+/home/          → User Dashboard
+/generate/      → AI Music Generator
+/history/       → History Page
+/spotify/       → Spotify Recommendations
+/profile/       → User Profile
+/logout/        → Logout
+
+## 🔮 Future Enhancements
+
+Real AI music generation models
+
+Spotify API authentication integration
+
+Admin analytics with Chart.js
+
+Mobile responsive version
+
+User social sharing features
