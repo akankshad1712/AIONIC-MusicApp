@@ -104,7 +104,7 @@ It combines **AI analysis, analytics dashboards, and modern UI design** to deliv
  
 ### Assets & UI
 
-  - Custom Logo: ![aionic_logo](https://github.com/user-attachments/assets/039ad356-aa20-4490-8dff-d5b4c1930e7e)
+  - Custom Logo: aionic_logo.png
 
   
   - Responsive Design (Desktop & Laptop)
@@ -144,5 +144,6 @@ It combines **AI analysis, analytics dashboards, and modern UI design** to deliv
 - Mobile responsive version
 
 - User social sharing features
+
 
 
