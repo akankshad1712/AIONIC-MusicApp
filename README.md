@@ -74,7 +74,7 @@ It combines **AI analysis, analytics dashboards, and modern UI design** to deliv
 
 > *(Add screenshots inside a `/screenshots` folder)*
 
-```text
+
 screenshots/
 │── splash.png
 <img width="1920" height="1080" alt="Screenshot (811)" src="https://github.com/user-attachments/assets/fb9fbeaf-7e14-4968-b705-706b1f837a46" />
@@ -107,3 +107,4 @@ screenshots/
 
 │── profile.png
 <img width="1920" height="1080" alt="Screenshot (822)" src="https://github.com/user-attachments/assets/b1b43234-a2fa-4821-9293-66e5270bf454" />
+
