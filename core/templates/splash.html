@@ -1,0 +1,218 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIONIC - Splash</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+    /* Global */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f9f9f9, #e6f0ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    #particles-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .splash-container {
+      text-align: center;
+      color: #333;
+      z-index: 1;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .logo {
+      width: 180px;
+      /* Correct size */
+      max-width: 50vw;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      opacity: 0;
+      animation: fadeInLogo 2s ease forwards, floatUpDown 3s ease-in-out infinite;
+    }
+
+    .splash-tagline {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #555;
+      opacity: 0;
+      animation: fadeInTag 3s ease forwards;
+      animation-delay: 2s;
+      font-weight: 500;
+    }
+
+    .btn {
+      margin-top: 35px;
+      padding: 16px 50px;
+      background: linear-gradient(90deg, #4f7cff, #00d0ff, #4fffcf);
+      background-size: 200% 200%;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 18px;
+      transition: 0.25s;
+      opacity: 0;
+      animation: fadeInTag 3s ease forwards;
+      animation-delay: 3.5s;
+      box-shadow: 0 0 20px rgba(79, 124, 255, 0.5);
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      animation: buttonGlow 1.5s infinite alternate;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Animations */
+    @keyframes fadeInLogo {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInTag {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatUpDown {
+      0% {
+        transform: translateY(-10px);
+      }
+
+      50% {
+        transform: translateY(10px);
+      }
+
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes buttonGlow {
+      0% {
+        box-shadow: 0 0 15px rgba(79, 124, 255, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 30px rgba(0, 208, 255, 0.8);
+      }
+
+      100% {
+        box-shadow: 0 0 15px rgba(79, 255, 207, 0.7);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="particles-bg"></canvas>
+
+  <div class="splash-container">
+    <!-- Logo image in center -->
+    <img src="{% static 'images/aionic_logo.png' %}" alt="AIONIC Logo" class="logo">
+
+    <div class="splash-tagline">Endless music. Endless moments.</div>
+    <a href="{% url 'login' %}"><button class="btn">Enter App</button></a>
+  </div>
+
+  <footer>Made with ❤️ • AIONIC • 2025</footer>
+
+  <script>
+    const canvas = document.getElementById('particles-bg');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const particles = [];
+    for (let i = 0; i < 200; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.8,
+        dy: (Math.random() - 0.5) * 0.8
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(79,124,255,0.3)`;
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > width) p.dx *= -1;
+        if (p.y < 0 || p.y > height) p.dy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+
+</html>

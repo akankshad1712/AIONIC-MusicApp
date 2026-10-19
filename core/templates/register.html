@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIONIC - Register</title>
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e0e5ff, #ffffff);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInBg {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes logoBounce {
+      0% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      70% {
+        transform: scale(0.95);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== REGISTER CONTAINER ===== */
+    .register-container {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      animation: fadeInUp 1s ease forwards;
+      transition: 0.3s;
+    }
+
+    .register-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ===== LOGO ===== */
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 100px;
+      animation: logoBounce 1.2s ease;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4f7cff;
+      margin-bottom: 25px;
+      font-weight: 700;
+      font-size: 28px;
+    }
+
+    /* ===== INPUT FIELDS ===== */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"] {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      border: 1px solid #cdd4f1;
+      outline: none;
+      font-size: 16px;
+      transition: 0.3s;
+      background: #f7f8ff;
+      color: #333;
+    }
+
+    input::placeholder {
+      color: #a1a6c1;
+    }
+
+    input:focus {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(79, 124, 255, 0.3);
+      border-color: #4f7cff;
+      background: #ffffff;
+    }
+
+    /* ===== BUTTON ===== */
+    .btn {
+      width: 100%;
+      padding: 15px;
+      background: #4f7cff;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(79, 124, 255, 0.5);
+    }
+
+    /* ===== LINKS ===== */
+    .login-link {
+      color: #4f7cff;
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .login-link:hover {
+      color: #3754d1;
+    }
+
+    /* ===== ERROR MESSAGES ===== */
+    .errorlist {
+      color: #ff6b6b;
+      font-size: 14px;
+      margin-bottom: 10px;
+      list-style: none;
+      padding: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 12px 0;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+      color: #555;
+      border-top: 1px solid #ddd;
+      margin-top: 20px;
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="register-container">
+    <img src="{% static 'images/aionic_logo.png' %}" alt="AIONIC Logo" class="logo">
+    <h1>Create Account</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      {% for field in form %}
+      {{ field.errors }}
+      {{ field }}
+      {% endfor %}
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <a href="{% url 'login' %}" class="login-link">Already have an account? Login</a>
+  </div>
+
+  <footer>
+    Made with ❤️ • AIONIC • 2025
+  </footer>
+</body>
+
+</html>
